@@ -1,42 +1,102 @@
 <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
-    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
-        <h1 class="h2">Request</h1>
+    <div class="container">
+        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+            <h1 class="h2">Request</h1>
+        </div>
     </div>
-    <div class="input-group mb-3">
-        <div class="input-group-prepend">
-            <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="false">Method</button>
-            <div class="dropdown-menu">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <a class="dropdown-item" href="#">Something else here</a>
-                <div role="separator" class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Separated link</a>
+
+    <!-- Request URL Input Form-->
+    <div class="container">
+        <div class="input-group mb-3">
+            <!-- Request Method Button -->
+            <div class="col-auto">
+                <select class="form-select">
+                    <option *ngFor="let method of methods">{{method}}</option>
+                </select>
+            </div>
+            <!-- Request URL Input Form And Button-->
+            <input type="text" class="form-control" placeholder="Please enter request URL"
+                aria-label="Text input with dropdown button">
+            <button class="btn btn-primary" type="button">Execute</button>
+        </div>
+    </div>
+
+    <!-- Request Parameter Navigation Bar -->
+    <!-- <ul ngbNav #nav="ngbNav" class="nav-tabs mb-3">
+        <li ngbNavItem *ngFor="let reqParam of requestParams">
+            <a ngbNavLink>{{reqParam}}</a>
+        </li>
+        <textarea class="form-control" placeholder="Please enter request body" rows="3"></textarea>
+    </ul> -->
+
+    <!-- Request Parameters -->
+    <div class="container mb-3">
+        <div class="row mb-2">
+            <div class="col">
+                <h1 class="h4">Headers</h1>
+            </div>
+            <div class="col">
+                <button type="button" class="btn btn-secondary btn-sm float-right">Add</button>
             </div>
         </div>
-        <input type="text" class="form-control" placeholder="Please enter request URL"
-            aria-label="Text input with dropdown button">
-        <button class="btn btn-primary" type="button">Execute</button>
-    </div>
-    <ul class="nav nav-tabs">
-        <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Body</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">Header</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">Query</a>
-        </li>
-    </ul>
-
-    <div class="mb-3">
-        <textarea class="form-control" placeholder="Please enter request body" id="exampleFormControlTextarea1"
-            rows="3"></textarea>
+        <form>
+            <div class="row">
+                <div class="col">
+                    <input type="text" class="form-control" placeholder="Key">
+                </div>
+                <div class="col">
+                    <input type="text" class="form-control" placeholder="Value">
+                </div>
+            </div>
+        </form>
     </div>
 
-    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
-        <h1 class="h2">Response</h1>
+    <div class="container mb-3">
+        <div class="row mb-2">
+            <div class="col">
+                <h1 class="h4">Queries</h1>
+            </div>
+            <div class="col">
+                <button type="button" class="btn btn-secondary btn-sm float-right">Add</button>
+            </div>
+        </div>
+        <form>
+            <div class="row">
+                <div class="col">
+                    <input type="text" class="form-control" placeholder="Key">
+                </div>
+                <div class="col">
+                    <input type="text" class="form-control" placeholder="Value">
+                </div>
+            </div>
+        </form>
     </div>
-    <textarea class="form-control" readonly placeholder="Please press the execute button to send a api request" id="exampleFormControlTextarea1" rows="3"></textarea>
+
+    <div class="container mb-3">
+        <h1 class="h4">Body</h1>
+        <textarea class="form-control" placeholder="Please enter request body" rows="3"></textarea>
+    </div>
+
+    <!-- Response -->
+    <div class="container">
+        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+            <h1 class="h2">Response</h1>
+        </div>
+
+        <div class="mb-3">
+            <h1 class="h5">Status Code</h1>
+            <textarea class="form-control" readonly placeholder="Please press the execute button to send a api request"
+                rows="1"></textarea>
+        </div>
+
+        <div class="mb-3">
+            <h1 class="h5">Headers</h1>
+            <textarea class="form-control" readonly rows="1"></textarea>
+        </div>
+
+        <div class="mb-3">
+            <h1 class="h5">Body</h1>
+            <textarea class="form-control" readonly rows="5"></textarea>
+        </div>
+    </div>
 </main>
